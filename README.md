@@ -34,4 +34,7 @@ image_filter(“file path”, grayscale_filter)
 Required packages  
 magick, devtools and crayon
 
+
+Have a nice day! 
+
 ------------------------------------------------------------------------

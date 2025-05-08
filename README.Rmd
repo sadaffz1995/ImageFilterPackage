@@ -13,43 +13,40 @@ knitr::opts_chunk$set(
 )
 ```
 
+
 # ImageFilterPackage
 
-<!-- badges: start -->
-<!-- badges: end -->
+This is an R package that applies color-based filters to images using the `magick` package. It was created as part of a programming course project by **Sadaf Fazeli**. 
 
-The goal of ImageFilterPackage is to ...
+---
 
 ## Installation
 
-You can install the development version of ImageFilterPackage from [GitHub](https://github.com/) with:
+Install the development version from GitHub:
 
-``` r
-# install.packages("pak")
-pak::pak("sadaffz1995/ImageFilterPackage")
-```
+devtools::install_github("sadaffz1995/ImageFilterPackage")
 
-## Example
 
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
 library(ImageFilterPackage)
-## basic example code
-```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
-```
+---
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
-You can also embed plots, for example:
+---
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+## Example of usage
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+First run: image <- image_filter(image_path, filter_function)
+Then run: print(image)
+
+If I want to apply gray filter on my image, then I will run: image <- image_filter("file path", grayscale_filter)
+
+
+---
+
+Required packages  
+magick, devtools and crayon
+
+---
+
