@@ -1,11 +1,17 @@
+#' Grayscale filter with a positive message
+#' @param r Red hex value
+#' @param g Green hex value
+#' @param b Blue hex value
+#' @return A raw RGB triplet
+#' @export
 grayscale_filter <- function(r, g, b) {
   # ✨ Fun surprise message - only show once per session
   if (!exists(".grayscale_message_shown", envir = .GlobalEnv)) {
     assign(".grayscale_message_shown", TRUE, envir = .GlobalEnv)
 
     cat(crayon::cyan$bold("╔════════════════════════════════════════════╗\n"))
-    cat(crayon::magenta$bold("║  Even though your filter is grayscale,   ║\n"))
-    cat(crayon::green$bold(  "║ I wish your life will be colorful 🌈      ║\n"))
+    cat(crayon::magenta$bold("║  Even though your filter is grayscale...   ║\n"))
+    cat(crayon::green$bold(  "║         life still has colors 🌈         ║\n"))
     cat(crayon::cyan$bold(   "╚════════════════════════════════════════════╝\n"))
   }
 
@@ -17,40 +23,38 @@ grayscale_filter <- function(r, g, b) {
 }
 
 
-# Red filter
+#' Red filter
+#' @export
 red_filter <- function(r, g, b) {
-  raw_r <- hex_to_raw(r)
-  c(raw_r, as.raw(0), as.raw(0))
+  c(hex_to_raw(r), as.raw(0), as.raw(0))
 }
 
-# Green filter
+#' Green filter
+#' @export
 green_filter <- function(r, g, b) {
-  raw_g <- hex_to_raw(g)
-  c(as.raw(0), raw_g, as.raw(0))
+  c(as.raw(0), hex_to_raw(g), as.raw(0))
 }
 
-# Blue filter
+#' Blue filter
+#' @export
 blue_filter <- function(r, g, b) {
-  raw_b <- hex_to_raw(b)
-  c(as.raw(0), as.raw(0), raw_b)
+  c(as.raw(0), as.raw(0), hex_to_raw(b))
 }
 
-# Binary black/white filter
-binary_filter <- function(r, g, b, cutoff = 127) {
-  r_val <- as.integer(strtoi(r, 16))
-  g_val <- as.integer(strtoi(g, 16))
-  b_val <- as.integer(strtoi(b, 16))
-  grey_val <- round(0.299 * r_val + 0.587 * g_val + 0.114 * b_val)
-  if (grey_val > cutoff) rep(as.raw(255), 3) else rep(as.raw(0), 3)
-}
-
-# Magenta binary filter
+#' Magenta binary filter
+#' @param r,g,b RGB hex values
+#' @param cutoff Brightness cutoff
+#' @export
 magenta_filter <- function(r, g, b, cutoff = 127) {
-  r_val <- as.integer(strtoi(r, 16))
-  g_val <- as.integer(strtoi(g, 16))
-  b_val <- as.integer(strtoi(b, 16))
-  grey_val <- round(0.299 * r_val + 0.587 * g_val + 0.114 * b_val)
-  if (grey_val > cutoff) c(as.raw(255), as.raw(0), as.raw(255)) else rep(as.raw(0), 3)
+  grey <- round(0.299 * strtoi(r, 16) + 0.587 * strtoi(g, 16) + 0.114 * strtoi(b, 16))
+  if (grey > cutoff) c(as.raw(255), as.raw(0), as.raw(255)) else rep(as.raw(0), 3)
 }
 
-
+#' Sunset Glow filter
+#' @export
+sunset_glow_filter <- function(rgb_vec) {
+  r <- as.integer(rgb_vec[1])
+  g <- as.integer(rgb_vec[2])
+  b <- as.integer(rgb_vec[3])
+  c(as.raw(min(255, r + 40)), as.raw(round(g * 0.85)), as.raw(round(b * 0.8)))
+}

@@ -1,16 +1,21 @@
-
-
-# Main function to apply pixel-level filter and return modified image
+#' Apply a pixel filter to an image
+#'
+#' @param image_path Path to the image file
+#' @param filter_function A function that returns a raw RGB triplet
+#' @return A magick image object
+#' @examples
+#' \dontrun{
+#' image_filter("path/to/image.jpg", grayscale_filter)
+#' }
+#' @import magick
+#' @importFrom crayon green blue magenta cyan bold
+#' @export
 image_filter <- function(image_path, filter_function) {
-
   img <- image_read(image_path)
   img_data <- image_data(img)
-
-
   bitmap <- img[[1]]
-  dims <- dim(bitmap) # Extract bitmap
+  dims <- dim(bitmap)
 
-  # Apply filter to each pixel
   for (x in 1:dims[2]) {
     for (y in 1:dims[3]) {
       r <- img_data[1, x, y]
@@ -22,5 +27,3 @@ image_filter <- function(image_path, filter_function) {
 
   image_read(bitmap)
 }
-
-
