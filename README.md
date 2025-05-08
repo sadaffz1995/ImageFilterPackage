@@ -1,0 +1,37 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# ImageFilterPackage
+
+This is an R package that applies color-based filters to images using
+the `magick` package. It was created as part of a programming course
+project by **Sadaf Fazeli**.
+
+------------------------------------------------------------------------
+
+## Installation
+
+Install the development version from GitHub:
+
+devtools::install_github(“sadaffz1995/ImageFilterPackage”)
+
+library(ImageFilterPackage)
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Example of usage
+
+First run: image \<- image_filter(image_path, filter_function) Then run:
+print(image)
+
+If I want to apply gray filter on my image, then I will run: image \<-
+image_filter(“file path”, grayscale_filter)
+
+------------------------------------------------------------------------
+
+Required packages  
+magick, devtools and crayon
+
+------------------------------------------------------------------------
