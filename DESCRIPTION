@@ -1,0 +1,13 @@
+Package: ImageFilterPackage
+Type: Package
+Title: color and gray scale Image Filters in R
+Version: 0.1.0
+Author: Sadaf Fazeli
+Maintainer: Sadaf Fazeli <sadaf.s.fazeli@gmail.com>
+Description: Apply artistic color filters to images using the 'magick' package.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: magick, crayon
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
