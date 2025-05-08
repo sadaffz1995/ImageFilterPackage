@@ -2,17 +2,17 @@
 % Please edit documentation in R/help.R
 \name{hex_to_raw}
 \alias{hex_to_raw}
-\title{Convert hex string to raw byte}
+\title{Convert a hex string to a raw byte}
 \usage{
 hex_to_raw(hex)
 }
 \arguments{
-\item{hex}{A hex string, e.g., "FF"}
+\item{hex}{A 2-character hex string, e.g. "FF"}
 }
 \value{
-A raw byte
+A raw value
 }
 \description{
-Convert hex string to raw byte
+Convert a hex string to a raw byte
 }
 \keyword{internal}
