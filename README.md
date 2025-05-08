@@ -1,5 +1,4 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+------------------------------------------------------------------------
 
 # ImageFilterPackage
 
@@ -34,7 +33,6 @@ image_filter(“file path”, grayscale_filter)
 Required packages  
 magick, devtools and crayon
 
-
-Have a nice day! 
+Have a nice day!
 
 ------------------------------------------------------------------------

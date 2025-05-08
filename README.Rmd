@@ -2,17 +2,8 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-
+---
 
 # ImageFilterPackage
 
@@ -48,5 +39,7 @@ If I want to apply gray filter on my image, then I will run: image <- image_filt
 Required packages  
 magick, devtools and crayon
 
----
 
+Have a nice day! 
+
+---
